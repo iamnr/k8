@@ -8,3 +8,6 @@ spec:
     image: nginx
   - name: sidecar
     image: almalinux
+    command:
+      - sleep
+      - "3600"
