@@ -4,6 +4,7 @@ metadata:
   name: nginx
   labels:
     name: nginx
+    environment: prod
 spec:
   containers:
   - name: nginx
@@ -19,10 +20,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx
+  name: nginx-service
 spec:
   selector:
     app: nginx
+    environment: prod
   ports:
   - port: 80
     targetPort: http-web-svc
