@@ -3,31 +3,27 @@ kind: Pod
 metadata:
   name: nginx
   labels:
-    name: nginx
     environment: dev
+    app: frontend
 spec:
   containers:
   - name: nginx
     image: nginx
-    resources:
-      limits:
-        memory: "128Mi"
-        cpu: "500m"
     ports:
       - containerPort: 80
+        name: http-web-svc
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-nodeport-service
+  name: nginx-service
 spec:
   type: NodePort
   selector:
-    name: nginx
     environment: dev
+    app: frontend
   ports:
-  - port: 8080
-    targetPort: 80
+  - name: name-of-service-port
     protocol: TCP
-
-
+    port: 80 # this port belongs to service
+    targetPort: http-web-svc # this port belongs to container
