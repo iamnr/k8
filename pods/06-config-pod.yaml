@@ -16,10 +16,7 @@ spec:
       - containerPort: 80
     env:
     - name: COURSE
-      configMapKeyRef:
-       name: course-config
-       key: COURSE
-    - name: TRAINER
-      configMapKeyRef:
-        name: course-config
-        key: TRAINER
+      valueFrom:
+        configMapKeyRef:
+          key: COURSE
+          name: course-config
