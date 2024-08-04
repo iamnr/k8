@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: nginx
+  name: config-pod
   labels:
-    name: nginx
+    name: config-pod
 spec:
   containers:
   - name: nginx
@@ -15,13 +15,11 @@ spec:
     ports:
       - containerPort: 80
     env:
-    - name: name 
-      valueFrom:
-        configMapKeyRef:
-          key: name
-          name: config-demo
-    - name: age
-      valueFrom:
-        configMapKeyRef:
-          key: age
-          name: config-demo
+    - name: COURSE
+      configMapKeyRef:
+       name: course-config
+       key: COURSE
+    - name: TRAINER
+      configMapKeyRef:
+        name: course-config
+        key: TRAINER
