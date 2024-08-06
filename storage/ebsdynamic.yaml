@@ -53,4 +53,3 @@ spec:
         - name:  nginx-html
           persistentVolumeClaim: 
             claimName: ebs-claim
-
