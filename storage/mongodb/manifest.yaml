@@ -38,7 +38,7 @@ kind: Service
 metadata:
   name: mongodb
 spec:
-  clusterIP: none
+  clusterIP: None
   selector:
     app: mongodb
     tier: db
